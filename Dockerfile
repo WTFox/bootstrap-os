@@ -19,3 +19,4 @@ WORKDIR /bootstrap
 COPY . /bootstrap
 
 RUN chmod +x /bootstrap/bootstrap.sh
+ENTRYPOINT ["/bootstrap/bootstrap.sh"]
