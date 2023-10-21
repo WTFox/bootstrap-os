@@ -23,31 +23,25 @@ else
 	exit 1
 fi
 
-# TODO: maybe have an os init script that runs brew update or apt-get update
-if [[ "$osType" == "mac" ]]; then
-	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-	brew update
-elif [[ "$osType" == "debian" ]]; then
-	sudo apt-get update
-elif [[ "$osType" == "arch" ]]; then
-	sudo pacman -Syu
-fi
-
 # Source common and OS-specific functions
 source os/common.sh
 source os/${osType}.sh
 
 # Start setup
 update_package_manager
-install_zsh_and_oh_my_zsh
+install_direnv
+install_starship
+install_fzf
 install_stow
 clone_dotfiles
 run_stow_script
-install_kitty
-install_neovim
+install_zsh_and_oh_my_zsh
 instalL_python_and_pyenv
 install_node_and_nvm
-# install direnv
-# install fzf
+install_nvim
 
+# install_kitty
+
+chsh -s $(which zsh)
+exec zsh -l
 echo "Setup complete!"

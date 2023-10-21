@@ -1,3 +1,5 @@
+#!/bin/bash
+
 update_package_manager() {
 	sudo pacman -Syu
 }

@@ -1,3 +1,5 @@
+#!/bin/bash
+
 update_package_manager() {
 	if ! command -v brew &>/dev/null; then
 		echo "brew could not be found"
@@ -9,7 +11,7 @@ update_package_manager() {
 
 install_zsh_and_oh_my_zsh() {
 	brew install zsh
-	sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+	install_oh_my_zsh
 }
 
 install_stow() {
