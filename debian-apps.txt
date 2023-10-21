@@ -1,0 +1,5 @@
+ripgrep
+jq
+bat
+tmux
+fd-find

@@ -38,10 +38,11 @@ run_stow_script
 install_zsh_and_oh_my_zsh
 instalL_python_and_pyenv
 install_node_and_nvm
+install_rust
+install_go
 install_nvim
-
-# install_kitty
+install_apps
+# configure_git
 
 chsh -s $(which zsh)
 exec zsh -l
-echo "Setup complete!"

@@ -29,3 +29,7 @@ install_nvim() {
 	echo "nvim installed!"
 	popd || exit
 }
+
+install_apps() {
+	brew bundle
+}
