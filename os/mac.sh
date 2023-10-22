@@ -33,6 +33,8 @@ install_nvim() {
 }
 
 install_apps() {
+	xcode-select --install
+
 	brew bundle
 
 	# tpm for tmux
