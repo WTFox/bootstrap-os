@@ -82,4 +82,7 @@ install_apps() {
 	sudo chmod 644 /etc/apt/keyrings/gierens.gpg /etc/apt/sources.list.d/gierens.list
 	sudo apt update
 	sudo apt install -y eza fd-find
+
+	# tpm for tmux
+	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 }

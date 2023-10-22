@@ -34,4 +34,7 @@ install_nvim() {
 
 install_apps() {
 	brew bundle
+
+	# tpm for tmux
+	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 }

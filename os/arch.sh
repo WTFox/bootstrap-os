@@ -36,6 +36,9 @@ install_apps() {
 
 	sudo pacman --noconfirm -S github-cli lazygit eza fd
 	go install github.com/jesseduffield/lazydocker@latest
+
+	# tpm for tmux
+	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 }
 
 install_pyenv_requirements() {
