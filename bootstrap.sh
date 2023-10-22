@@ -10,7 +10,6 @@ while true; do
 	kill -0 "$$" || exit
 done 2>/dev/null &
 
-# Determine OS type
 osType=""
 if [[ "$OSTYPE" == "darwin"* ]]; then
 	osType="mac"
@@ -23,11 +22,9 @@ else
 	exit 1
 fi
 
-# Source common and OS-specific functions
 source os/common.sh
 source os/${osType}.sh
 
-# Start setup
 update_package_manager
 install_direnv
 install_starship
@@ -42,7 +39,16 @@ install_rust
 install_go
 install_nvim
 install_apps
-# configure_git
+
+read -rp "Do you want to do X? (yes/no): " response
+case $response in
+[yY] | [yY][eE][sS])
+	configure_git
+	;;
+*)
+	echo "Not configuring git."
+	;;
+esac
 
 chsh -s $(which zsh)
 exec zsh -l

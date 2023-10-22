@@ -34,7 +34,8 @@ install_apps() {
 	# read packages from debian-apps.txt
 	sudo pacman --noconfirm -S $(cat linux-apps.txt)
 
-	sudo pacman --noconfirm -S github-cli lazygit lazydocker eza
+	sudo pacman --noconfirm -S github-cli lazygit eza fd
+	go install github.com/jesseduffield/lazydocker@latest
 }
 
 install_pyenv_requirements() {
