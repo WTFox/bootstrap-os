@@ -74,7 +74,7 @@ install_apps() {
 	# lazydocker
 	curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash
 
-	# eza
+	# eza and fd-find
 	sudo apt install -y gpg
 	sudo mkdir -p /etc/apt/keyrings
 	wget -qO- https://raw.githubusercontent.com/eza-community/eza/main/deb.asc | sudo gpg --dearmor -o /etc/apt/keyrings/gierens.gpg

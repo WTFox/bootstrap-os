@@ -40,7 +40,7 @@ install_go
 install_nvim
 install_apps
 
-read -rp "Do you want to do X? (yes/no): " response
+read -rp "Do you want to do configure git? (yes/no): " response
 case $response in
 [yY] | [yY][eE][sS])
 	configure_git
