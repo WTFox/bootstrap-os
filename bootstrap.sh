@@ -15,7 +15,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 	osType="mac"
 elif [[ -e "/etc/arch-release" ]]; then
 	osType="arch"
-elif [[ "$(cat /etc/os-release | grep 'ID_LIKE' | cut -d'=' -f2)" == "debian" ]]; then
+elif [[ "$(grep 'ID=' /etc/os-release | cut -d'=' -f2)" == "pop" ]] || [[ "$(grep 'ID_LIKE' /etc/os-release | cut -d'=' -f2)" == "debian" ]]; then
 	osType="debian"
 else
 	echo "Unsupported OS type."
