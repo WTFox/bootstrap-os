@@ -15,11 +15,15 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 	osType="mac"
 elif [[ -e "/etc/arch-release" ]]; then
 	osType="arch"
-elif [[ "$(grep 'ID=' /etc/os-release | cut -d'=' -f2)" == "pop" ]] || [[ "$(grep 'ID_LIKE' /etc/os-release | cut -d'=' -f2)" == "debian" ]]; then
-	osType="debian"
 else
-	echo "Unsupported OS type."
-	exit 1
+	# Import variables from /etc/os-release
+	source /etc/os-release
+	if [[ "$ID" == "pop" ]] || [[ "$ID_LIKE" == "debian" ]]; then
+		osType="debian"
+	else
+		echo "Unsupported OS type."
+		exit 1
+	fi
 fi
 
 source os/common.sh
