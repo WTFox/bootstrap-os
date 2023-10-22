@@ -2,19 +2,20 @@
 
 update_package_manager() {
 	sudo pacman -Syu
+	sudo pacman --noconfirm -S git curl wget coreutils
 }
 
 install_zsh_and_oh_my_zsh() {
-	sudo pacman -S zsh
-	sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+	sudo pacman --noconfirm -S zsh
+	install_oh_my_zsh
 }
 
 install_stow() {
-	sudo pacman -S stow
+	sudo pacman --noconfirm -S stow
 }
 
 install_kitty() {
-	sudo pacman -S kitty
+	sudo pacman --noconfirm -S kitty
 }
 
 install_nvim() {
@@ -23,4 +24,19 @@ install_nvim() {
 	tar xzf nvim-linux64.tar.gz
 	echo "nvim installed!"
 	popd || exit
+}
+
+install_go() {
+	sudo pacman --noconfirm -S go
+}
+
+install_apps() {
+	# read packages from debian-apps.txt
+	sudo pacman --noconfirm -S $(cat linux-apps.txt)
+
+	sudo pacman --noconfirm -S github-cli lazygit lazydocker eza
+}
+
+install_pyenv_requirements() {
+	sudo pacman --noconfirm -S base-devel openssl libffi zlib bzip2 xz sqlite tk ncurses
 }

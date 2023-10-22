@@ -1,5 +1,20 @@
 #!/bin/bash
 
+install_pyenv_requirements() {
+	# overriden in os files
+	pass
+}
+
+install_golang() {
+	# overriden in os files
+	pass
+}
+
+install_apps() {
+	# overriden in os files
+	pass
+}
+
 clone_dotfiles() {
 	git clone https://github.com/wtfox/dotfiles.git ~/dotfiles
 }
@@ -40,6 +55,9 @@ instalL_python_and_pyenv() {
 	python3 -m pip install --user pipx
 	python3 -m pipx ensurepath
 
+	# get pipx in PATH
+	export PATH="$HOME/.local/bin:$PATH"
+
 	pipx install poetry
 	pipx install black
 	pipx install flake8
@@ -73,24 +91,10 @@ install_starship() {
 
 install_rust() {
 	curl https://sh.rustup.rs -sSf | sh -s -- -y
+	source "$HOME/.cargo/env"
 
-	# install cargo
+	# rust utilities
 	cargo install --locked --git https://github.com/sxyazi/yazi.git
-}
-
-install_pyenv_requirements() {
-	# overriden in os files
-	pass
-}
-
-install_golang() {
-	# overriden in os files
-	pass
-}
-
-install_apps() {
-	# overriden in os files
-	pass
 }
 
 configure_git() {

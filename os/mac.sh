@@ -7,6 +7,8 @@ update_package_manager() {
 	else
 		brew update
 	fi
+
+	brew install coreutils git curl wget
 }
 
 install_zsh_and_oh_my_zsh() {

@@ -2,6 +2,7 @@
 
 update_package_manager() {
 	sudo apt-get update
+	sudo apt-get -y install git curl wget coreutils
 }
 
 install_zsh_and_oh_my_zsh() {
@@ -53,7 +54,7 @@ install_pyenv_requirements() {
 
 install_apps() {
 	# read packages from debian-apps.txt
-	sudo apt-get install -y $(cat debian-apps.txt)
+	sudo apt-get install -y $(cat linux-apps.txt)
 
 	# install gh
 	type -p curl >/dev/null || (sudo apt update && sudo apt install curl -y)
