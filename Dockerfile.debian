@@ -6,12 +6,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 # Update and install sudo, coreutils, and curl
 RUN apt-get update && \
-  apt-get install -y \
-  sudo \
-  coreutils \
-  curl \
-  git \
-  wget && \
+  apt-get install -y sudo && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/*
 
