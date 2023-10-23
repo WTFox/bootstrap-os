@@ -14,4 +14,6 @@ WORKDIR /bootstrap
 COPY . /bootstrap
 
 RUN chmod +x /bootstrap/bootstrap.sh
-ENTRYPOINT ["/bootstrap/bootstrap.sh"]
+RUN "/bootstrap/bootstrap.sh"
+
+ENTRYPOINT ["/bin/zsh"]
