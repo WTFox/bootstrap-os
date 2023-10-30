@@ -16,19 +16,13 @@ install_apps() {
 }
 
 clone_dotfiles() {
-	git clone https://github.com/wtfox/dotfiles.git ~/dotfiles
+	# your dotfiles get cloned here
+	echo "cloning dotfiles"
 }
 
 run_stow_script() {
-	pushd ~/dotfiles || exit
-	rm ~/.bashrc
-	rm ~/.zshrc
-	if [[ "$osType" == "mac" ]]; then
-		./stow_mac.sh
-	else
-		./stow_linux.sh
-	fi
-	popd || exit
+	# your dotfiles get installed here
+	echo "Installing dotfiles"
 }
 
 install_oh_my_zsh() {
